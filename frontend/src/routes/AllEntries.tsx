@@ -33,9 +33,14 @@ export default function AllEntries() {
               darkMode ? "bg-gray-700 shadow-gray-800" : "bg-gray-300 shadow-gray-400"
             }`}
           >
-            <h1 className={`font-bold text-sm md:text-lg ${darkMode ? "text-gray-50" : "text-black"}`}>
-              {entry.title}
-            </h1>
+            <p>
+                <h1 className={`font-bold text-sm md:text-lg ${darkMode ? "text-gray-50" : "text-black"}`}>
+                {entry.title}
+                </h1>
+                <time className={`text-right text-sm ${darkMode ? "text-gray-50" : "text-black"}`}>
+                Created: {new Date(entry.created_at.toString()).toLocaleDateString()}
+              </time>
+            </p>
             <p
               className={`text-center text-lg font-light md:mt-2 md:mb-4 mt-1 mb-3 ${
                 darkMode ? "text-gray-50" : "text-black"
@@ -63,7 +68,7 @@ export default function AllEntries() {
                 </button>
               </div>
               <time className={`text-right text-sm md:text-lg ${darkMode ? "text-gray-50" : "text-black"}`}>
-                {new Date(entry.created_at.toString()).toLocaleDateString()}
+                Due: {new Date(entry.scheduled_date.toString()).toLocaleDateString()}
               </time>
             </section>
           </div>
