@@ -25,10 +25,10 @@ export default function EditEntry() {
   };
   const handleSend = (e: MouseEvent<HTMLButtonElement>) => {
     if (newEntry.scheduled_date >= new Date().toISOString().split("T")[0]) {
-        updateEntry(id as string, newEntry);
-        navigate('/')
+      updateEntry(id as string, newEntry);
+      navigate("/");
     } else {
-        setDateValid(false);
+      setDateValid(false);
     }
   };
   return (
@@ -58,8 +58,8 @@ export default function EditEntry() {
         name="scheduled_date"
         value={new Date(newEntry.scheduled_date).toISOString().split("T")[0]}
         onChange={(e) => {
-            setDateValid(true);
-            handleInputChange(e)
+          setDateValid(true);
+          handleInputChange(e);
         }}
       />
       <button

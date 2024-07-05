@@ -34,10 +34,10 @@ export default function AllEntries() {
             }`}
           >
             <p>
-                <h1 className={`font-bold text-sm md:text-lg ${darkMode ? "text-gray-50" : "text-black"}`}>
+              <h1 className={`font-bold text-sm md:text-lg ${darkMode ? "text-gray-50" : "text-black"}`}>
                 {entry.title}
-                </h1>
-                <time className={`text-right text-sm ${darkMode ? "text-gray-50" : "text-black"}`}>
+              </h1>
+              <time className={`text-right text-sm ${darkMode ? "text-gray-50" : "text-black"}`}>
                 Created: {new Date(entry.created_at.toString()).toLocaleDateString()}
               </time>
             </p>
