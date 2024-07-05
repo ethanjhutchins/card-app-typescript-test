@@ -4,7 +4,7 @@ import {Entry, EntryContextType} from '../@types/context'
 
 export default function NewEntry(){
     const emptyEntry: Entry = {title: "", description: "",created_at: new Date()}
-    const { saveEntry } = useContext(EntryContext) as EntryContextType
+    const { darkMode, saveEntry } = useContext(EntryContext) as EntryContextType
     const [newEntry,setNewEntry] = useState<Entry>(emptyEntry)
     const handleInputChange = (event: ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) => {
         setNewEntry({
@@ -17,7 +17,7 @@ export default function NewEntry(){
         setNewEntry(emptyEntry)
     }
     return(
-        <section className="flex justify-center flex-col w-fit ml-auto mr-auto mt-10 gap-5 bg-gray-300 p-8 rounded-md">
+        <section className={`flex justify-center flex-col w-fit ml-auto mr-auto mt-10 gap-5 ${darkMode ? "bg-gray-700" : "bg-gray-300"} p-8 rounded-md`}>
             <input className="p-3 rounded-md" type="text" placeholder="Title" name="title" value={newEntry.title} onChange={handleInputChange}/>
             <textarea className="p-3 rounded-md" placeholder="Description" name="description" value={newEntry.description} onChange={handleInputChange}/>
             <input className="p-3 rounded-md" type="date" name="created_at" value={(new Date(newEntry.created_at)).toISOString().split('T')[0]} onChange={handleInputChange}/>
